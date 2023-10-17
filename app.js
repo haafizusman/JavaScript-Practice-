@@ -1321,23 +1321,148 @@
 
 // console.log(pTags)
 
-console.log(document.childNodes)
+// console.log(document.childNodes[1].childNodes[2])
+
+// console.log("hello world!")
+
+// var div = document.getElementById("div");
+
+// var getPara = div.getElementsByTagName("p")
+
+// getPara[0].innerHTML = "Hafiz"
+// getPara[1].innerHTML = "Usman"
+// getPara[2].innerHTML = "Ahmed"
+// getPara[3].innerHTML = "Siddiqui"
+
+// getPara[0].style.color = "red"
 
 
 
+// var getPara = document.childNodes[0].nextSibling.childNodes[2].childNodes[1].childNodes[1].firstChild
+// console.log(getPara)
+
+// getPara.nodeValue = "usman"
+
+// console.log(getPara)
+
+
+// var div = document.getElementById("div")
+
+// var getPara = div.childNodes[0]
+
+// console.log(getPara.nodeType)
+// console.log(div.nodeType)
+// console.log(getPara.nodeName)
+// console.log(div.nodeName)
+// console.log(div.nodeType)
+
+// var div = document.getElementById("div")
+
+// var getArr = div.childNodes
+
+// console.log(getArr)
+
+// var para = document.getElementsByTagName("p")
+
+// var checkClass = para[0].hasAttribute("id")
+
+// if (checkClass){
+//     para[0].style.color = "blue"
+//     console.log(checkClass)
+// }
+
+
+// var para = document.getElementsByTagName("p")
+
+// var attribute = para[0].getAttribute("class")
+
+// console.log(attribute)
+
+
+// `<div>
+
+// <p class="blue">Usman ahmed siddiqui</p>
+
+// </div>`
+
+
+// var div = document.getElementById("div")
+
+// div.innerHTML = 
+// `<div>
+
+// <p class="blue">Usman ahmed siddiqui</p>
+
+// </div>` 
+
+// var para = document.getElementsByTagName("p")
+
+// para[0].attributes
+
+// console.log(para[0].attributes)
+// console.log(para[0].getAttribute("class"))
+
+// var div = document.getElementById("div")
+
+// var p = document.createElement("p")
+
+// var text = document.createTextNode("haiz usman ahmed siddiqui")
+
+// p.appendChild(text)
+
+// div.appendChild(p)
+
+// div.setAttribute("class","blue")
+
+
+function addTodos(){
+    var input = document.getElementById("todo")
+    var ul = document.getElementById("list")
+    //li tag start
+    var li = document.createElement("li")
+    var liText = document.createTextNode(input.value)
+    li.appendChild(liText)
+    //li tag end
+
+    //edit button start
+
+    var editBtn = document.createElement("button")
+    var editBtnText = document.createTextNode("Edit")
+    editBtn.appendChild(editBtnText)
+    li.appendChild(editBtn)
+    editBtn.setAttribute("onclick","editTodo(this)")
+    
+    //edit button end
+    
+    //delete button start
+    var delBtn = document.createElement("button")
+    var delBtnText = document.createTextNode("Delete")
+    delBtn.appendChild(delBtnText)
+    li.appendChild(delBtn)
+    delBtn.setAttribute("onclick","delteTodo()")
+    //delete button end
 
 
 
+    ul.appendChild(li)
+    input.value = ""
+}
 
+function deleteAll(){
+    var ul = document.getElementById("list")
+    ul.innerHTML = ""
+    // console.log(ul.innerHTML)
+}
 
+function delteTodo(){
+    event.target.parentNode.remove()
+}
 
-
-
-
-
-
-
-
+function editTodo(e){
+    var oldVal = event.target.parentNode.firstChild.nodeValue
+    var UpdateVal = prompt("enter your updated value",oldVal)
+    event.target.parentNode.firstChild.nodeValue = UpdateVal 
+}
 
 
 
